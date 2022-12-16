@@ -1,6 +1,9 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js';
 import { koroProfileSpiel } from './assets/spiels';
 import { koroEmbed, koroPng } from './embeds';
+import { config as loadConfig } from 'dotenv'
+import { registerCommands } from './commands';
+
 
 const client = new Client({
    intents: [
@@ -10,8 +13,10 @@ const client = new Client({
       GatewayIntentBits.GuildMembers,
    ]
 });
+loadConfig();
+registerCommands();
 
-client.on('ready', () => {
+client.on(Events.ClientReady, () => {
    console.log(`Logged in as ${client!.user!.tag}!`);
 });
 
@@ -26,4 +31,15 @@ client.on(Events.MessageCreate, msg => {
    }
 });
 
-client.login('MTA1MzA2MTE0MjAyNjY2MTg5OA.Gcp49y.tNXcAW0UQ81TB64XJZxzzW2_YHkyFdVoMfwOvw')
+client.on(Events.InteractionCreate, async interaction => {
+   if (!interaction.isChatInputCommand()) return;
+
+   switch (interaction.commandName) {
+      case 'koro': {
+         await interaction.reply({ content: 'Krunc 🥵' })
+      }
+   }
+
+})
+
+client.login(process.env.DISCORD_TOKEN)
