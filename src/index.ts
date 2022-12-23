@@ -40,6 +40,9 @@ client.on(Events.MessageCreate, msg => {
       msg.channel.send(koroProfileSpiel)
       msg.channel.send({ embeds: [koroEmbed], files: [koroPng] });
    }
+   else if (splitSentence.includes('korokrunch')) {
+    msg.channel.send("NAKSHUTA PARE https://www.twitch.tv/korokrunch IS STREAMING 😲");
+   }
 });
 
 client.on(Events.InteractionCreate, async interaction => {
