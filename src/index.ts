@@ -41,7 +41,7 @@ client.on(Events.MessageCreate, msg => {
       msg.channel.send({ embeds: [koroEmbed], files: [koroPng] });
    }
    else if (splitSentence.includes('korokrunch')) {
-    msg.channel.send("NAKSHUTA PARE https://www.twitch.tv/korokrunch IS STREAMING 😲");
+    msg.channel.send("NAKSHUTA PARE https://www.twitch.tv/korokrunch IS STREAMING 😲 \n HOPE ON IN AND SAY 'POGI MO KORO' FOR A SPECIAL SHOUTOUT");
    }
 });
 
