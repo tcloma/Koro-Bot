@@ -5,6 +5,8 @@ import { config as loadConfig } from 'dotenv'
 import { registerCommands } from './commands';
 
 
+// Commit for redeploy on railway
+
 const client = new Client({
    intents: [
       GatewayIntentBits.Guilds,
